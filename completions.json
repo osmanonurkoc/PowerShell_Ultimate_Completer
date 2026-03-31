@@ -2,65 +2,280 @@
   "adb": {
     "subcommands": {
       "sideload": { "description": "Sideloads a package to the device" },
-      "install": { "description": "Pushes a package to the device and installs it", "flags": ["-r", "-d", "-g"] },
+      "install": {
+        "description": "Pushes a package to the device and installs it",
+        "flags": {
+          "-r": "Replace existing application",
+          "-d": "Allow version code downgrade",
+          "-g": "Grant all runtime permissions"
+        }
+      },
       "shell": { "description": "Starts a remote shell" },
-      "devices": { "description": "Prints a list of connected devices", "flags": ["-l"] },
-      "logcat": { "description": "Prints log data to the screen", "flags": ["-c", "-d", "-e", "-v"] },
+      "devices": {
+        "description": "Prints a list of connected devices",
+        "flags": {
+          "-l": "List device paths"
+        }
+      },
+      "logcat": {
+        "description": "Prints log data to the screen",
+        "flags": {
+          "-c": "Clear (flush) the entire log and exit",
+          "-d": "Dump the log and then exit",
+          "-e": "Print lines matching regular expression",
+          "-v": "Set log print format"
+        }
+      },
       "pull": { "description": "Pulls files from device" },
       "push": { "description": "Pushes files to device" },
-      "reboot": { "description": "Reboots the device", "flags": ["bootloader", "recovery", "fastboot"] }
+      "reboot": {
+        "description": "Reboots the device",
+        "flags": {
+          "bootloader": "Reboot to bootloader",
+          "recovery": "Reboot to recovery",
+          "fastboot": "Reboot to fastbootd"
+        }
+      }
     },
-    "flags": ["-d", "-e", "-s", "--help"]
+    "flags": {
+      "-d": "Direct to the only attached USB device",
+      "-e": "Direct to the only running emulator",
+      "-s": "Direct to the device with the given serial",
+      "--help": "Show help"
+    }
   },
   "fastboot": {
     "subcommands": {
-      "devices": { "description": "List connected devices", "flags": ["-l"] },
-      "flash": { "description": "Write a file to a flash partition", "flags": ["boot", "recovery", "system", "vendor"] },
+      "devices": {
+        "description": "List connected devices",
+        "flags": {
+          "-l": "Device paths"
+        }
+      },
+      "flash": {
+        "description": "Write a file to a flash partition",
+        "flags": {
+          "boot": "Flash boot partition",
+          "recovery": "Flash recovery partition",
+          "system": "Flash system partition",
+          "vendor": "Flash vendor partition"
+        }
+      },
       "boot": { "description": "Download and boot kernel" },
       "reboot": { "description": "Reboot device normally" },
-      "oem": { "description": "OEM specific commands", "flags": ["unlock", "lock", "device-info"] }
+      "oem": {
+        "description": "OEM specific commands",
+        "flags": {
+          "unlock": "Unlock bootloader",
+          "lock": "Lock bootloader",
+          "device-info": "Show device info"
+        }
+      }
     },
-    "flags": ["-w", "-s", "--help"]
+    "flags": {
+      "-w": "Wipe userdata",
+      "-s": "Specify device serial",
+      "--help": "Show help"
+    }
   },
   "git": {
     "subcommands": {
-      "checkout": { "description": "Switch branches or restore working tree files", "flags": ["-b", "-f"] },
-      "commit": { "description": "Record changes to the repository", "flags": ["-m", "-a", "--amend"] },
-      "push": { "description": "Update remote refs along with associated objects", "flags": ["-u", "--force", "--tags"] },
-      "pull": { "description": "Fetch from and integrate with another repository or a local branch", "flags": ["--rebase", "--no-commit"] },
-      "status": { "description": "Show the working tree status", "flags": ["-s", "--short"] },
-      "add": { "description": "Add file contents to the index", "flags": [".", "-A", "-u"] },
-      "branch": { "description": "List, create, or delete branches", "flags": ["-a", "-d", "-D", "-m"] }
+      "checkout": {
+        "description": "Switch branches or restore working tree files",
+        "flags": {
+          "-b": "Create and checkout a new branch",
+          "-f": "Force checkout (discard local changes)"
+        }
+      },
+      "commit": {
+        "description": "Record changes to the repository",
+        "flags": {
+          "-m": "Use the given message as the commit message",
+          "-a": "Stage all modified and deleted files",
+          "--amend": "Replace the tip of the current branch by creating a new commit"
+        }
+      },
+      "push": {
+        "description": "Update remote refs along with associated objects",
+        "flags": {
+          "-u": "Add upstream (tracking) reference",
+          "--force": "Force the push",
+          "--tags": "Push all tags"
+        }
+      },
+      "pull": {
+        "description": "Fetch from and integrate with another repository or a local branch",
+        "flags": {
+          "--rebase": "Rebase local commits on top of fetched branch",
+          "--no-commit": "Perform the merge but do not commit"
+        }
+      },
+      "status": {
+        "description": "Show the working tree status",
+        "flags": {
+          "-s": "Give the output in the short-format",
+          "--short": "Give the output in the short-format"
+        }
+      },
+      "add": {
+        "description": "Add file contents to the index",
+        "flags": {
+          ".": "Add all files in current directory",
+          "-A": "Add all files in the working tree",
+          "-u": "Update tracked files"
+        }
+      },
+      "branch": {
+        "description": "List, create, or delete branches",
+        "flags": {
+          "-a": "List both remote-tracking and local branches",
+          "-d": "Delete fully merged branch",
+          "-D": "Delete branch (even if not merged)",
+          "-m": "Rename branch"
+        }
+      }
     },
-    "flags": ["--version", "--help"]
+    "flags": {
+      "--version": "Print the Git suite version",
+      "--help": "Show help"
+    }
   },
   "wsl": {
     "subcommands": {
-      "--install": { "description": "Install a Linux distribution", "flags": ["-d"] },
-      "--list": { "description": "List Linux distributions", "flags": ["--online", "--verbose"] },
+      "--install": {
+        "description": "Install a Linux distribution",
+        "flags": {
+          "-d": "Specify the distribution to install"
+        }
+      },
+      "--list": {
+        "description": "List Linux distributions",
+        "flags": {
+          "--online": "Displays a list of available distributions for install",
+          "--verbose": "Shows detailed information about all distributions"
+        }
+      },
       "--set-default": { "description": "Set the default Linux distribution" },
       "--set-version": { "description": "Change the version of the specified distribution" },
       "--shutdown": { "description": "Immediately terminates all running distributions" },
       "--update": { "description": "Update the Windows Subsystem for Linux package" }
     },
-    "flags": ["--help", "--status"]
+    "flags": {
+      "--help": "Show help",
+      "--status": "Show the status of Windows Subsystem for Linux"
+    }
   },
   "npm": {
     "subcommands": {
-      "install": { "description": "Install a package", "flags": ["-g", "--save", "--save-dev", "--production"] },
-      "run": { "description": "Run arbitrary package scripts", "flags": ["build", "dev", "start", "test"] },
+      "install": {
+        "description": "Install a package",
+        "flags": {
+          "-g": "Install globally",
+          "--save": "Add as a dependency",
+          "--save-dev": "Add as a dev dependency",
+          "--production": "Omit dev dependencies"
+        }
+      },
+      "run": {
+        "description": "Run arbitrary package scripts",
+        "flags": {
+          "build": "Run the build script",
+          "dev": "Run the dev script",
+          "start": "Run the start script",
+          "test": "Run the test script"
+        }
+      },
       "start": { "description": "Start the package" },
-      "init": { "description": "Create a package.json file", "flags": ["-y"] }
+      "init": {
+        "description": "Create a package.json file",
+        "flags": {
+          "-y": "Automatically answer yes to all prompts"
+        }
+      }
     },
-    "flags": ["-v", "--version", "--help"]
+    "flags": {
+      "-v": "Show version",
+      "--version": "Show version",
+      "--help": "Show help"
+    }
   },
   "firebase": {
     "subcommands": {
-      "deploy": { "description": "Deploy code and assets to your Firebase project", "flags": ["--only", "--except"] },
+      "deploy": {
+        "description": "Deploy code and assets to your Firebase project",
+        "flags": {
+          "--only": "Deploy only specified, comma-separated features",
+          "--except": "Deploy all features except specified, comma-separated features"
+        }
+      },
       "init": { "description": "Interactively configure the current directory as a Firebase workspace" },
-      "serve": { "description": "Start a local server for your static assets", "flags": ["--port", "--host"] },
-      "login": { "description": "Log the CLI into Firebase", "flags": ["--reauth", "--no-localhost"] }
+      "serve": {
+        "description": "Start a local server for your static assets",
+        "flags": {
+          "--port": "The port on which to listen",
+          "--host": "The host on which to listen"
+        }
+      },
+      "login": {
+        "description": "Log the CLI into Firebase",
+        "flags": {
+          "--reauth": "Force reauthentication even if already logged in",
+          "--no-localhost": "Copy and paste a code instead of starting a local server for authentication"
+        }
+      }
     },
-    "flags": ["--project", "--debug", "--help"]
+    "flags": {
+      "--project": "The project ID",
+      "--debug": "Print verbose debug output",
+      "--help": "Show help"
+    }
+  },
+  "grep": {
+    "subcommands": {},
+    "flags": {
+      "-A": "Print NUM lines of trailing context",
+      "-B": "Print NUM lines of leading context",
+      "-C": "Print NUM lines of output context",
+      "-E": "Interpret pattern as an extended regular expression",
+      "--extended-regexp": "Interpret pattern as an extended regular expression",
+      "-F": "Interpret pattern as a list of fixed strings",
+      "--fixed-strings": "Interpret pattern as a list of fixed strings",
+      "-G": "Interpret pattern as a basic regular expression",
+      "--basic-regexp": "Interpret pattern as a basic regular expression",
+      "-P": "Interpret pattern as a Perl regular expression",
+      "--perl-regexp": "Interpret pattern as a Perl regular expression",
+      "-c": "Print a count of matching lines for each input file",
+      "--count": "Print a count of matching lines for each input file",
+      "-i": "Ignore case distinctions",
+      "--ignore-case": "Ignore case distinctions",
+      "-l": "Print only names of files with selected lines",
+      "--files-with-matches": "Print only names of files with selected lines",
+      "-L": "Print only names of files with no selected lines",
+      "--files-without-match": "Print only names of files with no selected lines",
+      "-m": "Stop after NUM selected lines",
+      "--max-count": "Stop after NUM selected lines",
+      "-n": "Prefix each line of output with the line number",
+      "--line-number": "Prefix each line of output with the line number",
+      "-o": "Show only the part of a line matching PATTERN",
+      "--only-matching": "Show only the part of a line matching PATTERN",
+      "-q": "Quiet mode; do not write anything to standard output",
+      "--quiet": "Quiet mode; do not write anything to standard output",
+      "--silent": "Quiet mode; do not write anything to standard output",
+      "-r": "Read all files under each directory recursively",
+      "--recursive": "Read all files under each directory recursively",
+      "-R": "Read all files under each directory recursively (follow symlinks)",
+      "--dereference-recursive": "Read all files under each directory recursively (follow symlinks)",
+      "-s": "Suppress error messages about nonexistent or unreadable files",
+      "--no-messages": "Suppress error messages about nonexistent or unreadable files",
+      "-v": "Invert the sense of matching, to select non-matching lines",
+      "--invert-match": "Invert the sense of matching, to select non-matching lines",
+      "-w": "Select only those lines containing matches that form whole words",
+      "--word-regexp": "Select only those lines containing matches that form whole words",
+      "-x": "Select only those matches that exactly match the whole line",
+      "--line-regexp": "Select only those matches that exactly match the whole line",
+      "--exclude": "Skip files whose base name matches GLOB",
+      "--exclude-dir": "Exclude directories matching the pattern DIR from recursive searches",
+      "--include": "Search only files whose base name matches GLOB"
+    }
   }
 }
