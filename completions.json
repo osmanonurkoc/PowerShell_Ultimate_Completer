@@ -113,7 +113,6 @@
       "status": {
         "description": "Show the working tree status",
         "flags": {
-          "-s": "Give the output in the short-format",
           "--short": "Give the output in the short-format"
         }
       },
@@ -194,7 +193,6 @@
       }
     },
     "flags": {
-      "-v": "Show version",
       "--version": "Show version",
       "--help": "Show help"
     }
@@ -236,46 +234,55 @@
       "-A": "Print NUM lines of trailing context",
       "-B": "Print NUM lines of leading context",
       "-C": "Print NUM lines of output context",
-      "-E": "Interpret pattern as an extended regular expression",
       "--extended-regexp": "Interpret pattern as an extended regular expression",
-      "-F": "Interpret pattern as a list of fixed strings",
       "--fixed-strings": "Interpret pattern as a list of fixed strings",
-      "-G": "Interpret pattern as a basic regular expression",
       "--basic-regexp": "Interpret pattern as a basic regular expression",
-      "-P": "Interpret pattern as a Perl regular expression",
       "--perl-regexp": "Interpret pattern as a Perl regular expression",
-      "-c": "Print a count of matching lines for each input file",
       "--count": "Print a count of matching lines for each input file",
-      "-i": "Ignore case distinctions",
       "--ignore-case": "Ignore case distinctions",
-      "-l": "Print only names of files with selected lines",
       "--files-with-matches": "Print only names of files with selected lines",
-      "-L": "Print only names of files with no selected lines",
       "--files-without-match": "Print only names of files with no selected lines",
-      "-m": "Stop after NUM selected lines",
       "--max-count": "Stop after NUM selected lines",
-      "-n": "Prefix each line of output with the line number",
       "--line-number": "Prefix each line of output with the line number",
-      "-o": "Show only the part of a line matching PATTERN",
       "--only-matching": "Show only the part of a line matching PATTERN",
-      "-q": "Quiet mode; do not write anything to standard output",
       "--quiet": "Quiet mode; do not write anything to standard output",
-      "--silent": "Quiet mode; do not write anything to standard output",
-      "-r": "Read all files under each directory recursively",
       "--recursive": "Read all files under each directory recursively",
-      "-R": "Read all files under each directory recursively (follow symlinks)",
       "--dereference-recursive": "Read all files under each directory recursively (follow symlinks)",
-      "-s": "Suppress error messages about nonexistent or unreadable files",
       "--no-messages": "Suppress error messages about nonexistent or unreadable files",
-      "-v": "Invert the sense of matching, to select non-matching lines",
       "--invert-match": "Invert the sense of matching, to select non-matching lines",
-      "-w": "Select only those lines containing matches that form whole words",
       "--word-regexp": "Select only those lines containing matches that form whole words",
-      "-x": "Select only those matches that exactly match the whole line",
       "--line-regexp": "Select only those matches that exactly match the whole line",
       "--exclude": "Skip files whose base name matches GLOB",
       "--exclude-dir": "Exclude directories matching the pattern DIR from recursive searches",
       "--include": "Search only files whose base name matches GLOB"
+    }
+  },
+  "inkscape": {
+    "subcommands": {},
+    "flags": {
+      "--version": "Print Inkscape version",
+      "--help": "Show help options",
+      "--pipe": "Read input file from standard input (pipe)",
+      "--export-filename": "Output file name (can be absolute or relative path)",
+      "--export-type": "File type to export: [svg, png, ps, eps, pdf, emf, wmf, xaml]",
+      "--export-dpi": "Resolution for bitmap export (default 96)",
+      "--export-width": "Width of exported bitmap in pixels",
+      "--export-height": "Height of exported bitmap in pixels",
+      "--export-id": "ID(s) of object(s) to export",
+      "--export-id-only": "Export only the specified object(s)",
+      "--export-plain-svg": "Export plain SVG (no Inkscape metadata)",
+      "--export-area-page": "Export area is the page",
+      "--export-area-drawing": "Export area is the entire drawing",
+      "--export-background": "Background color for exported bitmap (e.g. #ffffff or 'white')",
+      "--export-background-opacity": "Background opacity (0.0 to 1.0 or 0 to 255)",
+      "--query-all": "Query id, x, y, width and height of all objects",
+      "--query-width": "Query width of object(s)",
+      "--query-height": "Query height of object(s)",
+      "--query-x": "Query x coordinate of object(s)",
+      "--query-y": "Query y coordinate of object(s)",
+      "--actions": "List of actions to execute (semicolon separated)",
+      "--action-list": "List all available actions",
+      "--verb-list": "List all available verbs (legacy)"
     }
   }
 }
