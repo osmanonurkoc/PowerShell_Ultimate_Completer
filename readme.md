@@ -13,10 +13,10 @@ No need to write complex PowerShell completion scripts for every single tool. Ju
 * **Smart Tooltips:** Displays descriptions of what each subcommand does right in your terminal menu.
 * **Executable Friendly:** Seamlessly handles commands whether you type `adb` or `adb.exe`.
 
-📺 Preview
-<video src="preview/video" width="100%"></video>
+## 📺 Preview
+<video src="/preview/video.mp4" width="100%"></video>
 
-<video src="preview/video2" width="100%"></video>
+<video src="/preview/video2" width="100%"></video>
 
 ## ⚠️ Prerequisites: The Golden Rule
 **Ultimate Completer handles *arguments*, not the root commands themselves.** For this module to trigger, the base CLI tools you are trying to use (like `git`, `adb`, `fastboot`, `wsl`) **must be installed on your system** and accessible globally.
