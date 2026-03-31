@@ -1,6 +1,7 @@
+
 # PowerShell Ultimate Completer 🚀
 
-A data-driven, lightning-fast, and highly customizable argument auto-completer for PowerShell. 
+A data-driven, lightning-fast, and highly customizable argument auto-completer for PowerShell.
 
 Tired of PowerShell not knowing the subcommands and flags for your favorite CLI tools like `adb`, `git`, `fastboot`, or `npm`? **Ultimate Completer** solves this by using a simple, easily extendable JSON dictionary to provide deep, multi-level tab completion with helpful tooltips.
 
@@ -12,8 +13,15 @@ No need to write complex PowerShell completion scripts for every single tool. Ju
 * **Smart Tooltips:** Displays descriptions of what each subcommand does right in your terminal menu.
 * **Executable Friendly:** Seamlessly handles commands whether you type `adb` or `adb.exe`.
 
+## 📺 Preview
+
+Witness the **Ultimate Completer** in action! These clips demonstrate how the deep hierarchy and smart tooltips transform the standard PowerShell experience into something much more fluid and informative.
+
+<video src="./preview/video" width="400"></video> 
+<video src="./preview/video2" width="400"></video>
+
 ## ⚠️ Prerequisites: The Golden Rule
-**Ultimate Completer handles *arguments*, not the root commands themselves.** For this module to trigger, the base CLI tools you are trying to use (like `git`, `adb`, `fastboot`, `wsl`) **must be installed on your system** and accessible globally. 
+**Ultimate Completer handles *arguments*, not the root commands themselves.** For this module to trigger, the base CLI tools you are trying to use (like `git`, `adb`, `fastboot`, `wsl`) **must be installed on your system** and accessible globally.
 * Ensure your tools are added to your system's **Environment Variables (`PATH`)**.
 * OR, define them as an **Alias** in your PowerShell profile.
 
@@ -31,12 +39,9 @@ Install-Module -Name UltimateCompleter -Scope CurrentUser
 **2. Add it to your PowerShell Profile:** To make the auto-completion work automatically every time you open a new terminal, you need to import it in your profile.
 
 Open your profile:
-
 ```
 notepad $PROFILE
 ```
-
-_(If you get an error that the file doesn't exist, you can create it first using `New-Item -Path $PROFILE -Type File -Force`)_
 
 Add this line to the very end of the file, save, and restart your terminal:
 
@@ -49,13 +54,24 @@ Import-Module UltimateCompleter -DisableNameChecking
 The entire logic is powered by the `completions.json` file located inside the module folder. It uses a clean, intuitive structure. Here is a quick example of how an entry looks:
 
 ```
-"adb": {
-  "subcommands": {
-    "install": { "description": "Pushes a package to the device and installs it", "flags": ["-r", "-d", "-g"] },
-    "devices": { "description": "Prints a list of connected devices", "flags": ["-l"] }
-  },
-  "flags": ["-d", "-e", "-s", "--help"]
-}
+  "adb": {
+    "subcommands": {
+      "sideload": { "description": "Sideloads a package to the device" },
+      "install": {
+        "description": "Pushes a package to the device and installs it",
+        "flags": {
+          "-r": "Replace existing application",
+          "-d": "Allow version code downgrade",
+          "-g": "Grant all runtime permissions"
+        }
+      },
+      "shell": { "description": "Starts a remote shell" },
+      "devices": {
+        "description": "Prints a list of connected devices",
+        "flags": {
+          "-l": "List device paths"
+        }
+      }
 ```
 
 When you type `adb i<TAB>`, the module instantly reads this JSON and suggests `install` along with its description.
@@ -64,24 +80,20 @@ When you type `adb i<TAB>`, the module instantly reads this JSON and suggests `i
 
 This module was built to be expanded by the community. You don't need to know advanced PowerShell to contribute; **you just need to know JSON!**
 
-If your favorite CLI tool is missing, or a command lacks some flags, we would love your Pull Request.
-
 **How to contribute:**
 
-1.  Fork the repository.
+1.  **Fork** the repository.
     
 2.  Open `completions.json`.
     
-3.  Add your favorite CLI tool using the existing structure (Root command -> Subcommands -> Flags & Descriptions).
+3.  **Add** your favorite CLI tool using the existing structure (Root command -> Subcommands -> Flags & Descriptions).
     
-4.  Commit your changes and submit a Pull Request.
+4.  **Commit** your changes and submit a **Pull Request**.
     
-
-Let's build the biggest, most comprehensive auto-complete dictionary for Windows developers together!
 
 ## 📄 License
 
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the [GPL License](LICENSE).
 
 ----------
 
