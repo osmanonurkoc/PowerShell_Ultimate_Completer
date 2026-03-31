@@ -14,9 +14,10 @@ No need to write complex PowerShell completion scripts for every single tool. Ju
 * **Executable Friendly:** Seamlessly handles commands whether you type `adb` or `adb.exe`.
 
 ## 📺 Preview
-<video src="preview/video.mp4" width="100%"></video>
-
-<video src="preview/video2" width="100%"></video>
+<p align="center">
+  <img src="preview/preview1.webp" width="100%" alt="" />
+  <img src="preview/preview2.webp" width="100%" alt="" />
+</p>
 
 ## ⚠️ Prerequisites: The Golden Rule
 **Ultimate Completer handles *arguments*, not the root commands themselves.** For this module to trigger, the base CLI tools you are trying to use (like `git`, `adb`, `fastboot`, `wsl`) **must be installed on your system** and accessible globally.
