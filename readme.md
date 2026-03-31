@@ -17,8 +17,8 @@ No need to write complex PowerShell completion scripts for every single tool. Ju
 
 Witness the **Ultimate Completer** in action! These clips demonstrate how the deep hierarchy and smart tooltips transform the standard PowerShell experience into something much more fluid and informative.
 
-<video src="./preview/video" width="400"></video> 
-<video src="./preview/video2" width="400"></video>
+<video src="./preview/video.mp4" width="400"></video> 
+<video src="./preview/video2.mp4" width="400"></video>
 
 ## ⚠️ Prerequisites: The Golden Rule
 **Ultimate Completer handles *arguments*, not the root commands themselves.** For this module to trigger, the base CLI tools you are trying to use (like `git`, `adb`, `fastboot`, `wsl`) **must be installed on your system** and accessible globally.
