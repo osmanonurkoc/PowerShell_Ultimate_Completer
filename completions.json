@@ -1,0 +1,66 @@
+{
+  "adb": {
+    "subcommands": {
+      "sideload": { "description": "Sideloads a package to the device" },
+      "install": { "description": "Pushes a package to the device and installs it", "flags": ["-r", "-d", "-g"] },
+      "shell": { "description": "Starts a remote shell" },
+      "devices": { "description": "Prints a list of connected devices", "flags": ["-l"] },
+      "logcat": { "description": "Prints log data to the screen", "flags": ["-c", "-d", "-e", "-v"] },
+      "pull": { "description": "Pulls files from device" },
+      "push": { "description": "Pushes files to device" },
+      "reboot": { "description": "Reboots the device", "flags": ["bootloader", "recovery", "fastboot"] }
+    },
+    "flags": ["-d", "-e", "-s", "--help"]
+  },
+  "fastboot": {
+    "subcommands": {
+      "devices": { "description": "List connected devices", "flags": ["-l"] },
+      "flash": { "description": "Write a file to a flash partition", "flags": ["boot", "recovery", "system", "vendor"] },
+      "boot": { "description": "Download and boot kernel" },
+      "reboot": { "description": "Reboot device normally" },
+      "oem": { "description": "OEM specific commands", "flags": ["unlock", "lock", "device-info"] }
+    },
+    "flags": ["-w", "-s", "--help"]
+  },
+  "git": {
+    "subcommands": {
+      "checkout": { "description": "Switch branches or restore working tree files", "flags": ["-b", "-f"] },
+      "commit": { "description": "Record changes to the repository", "flags": ["-m", "-a", "--amend"] },
+      "push": { "description": "Update remote refs along with associated objects", "flags": ["-u", "--force", "--tags"] },
+      "pull": { "description": "Fetch from and integrate with another repository or a local branch", "flags": ["--rebase", "--no-commit"] },
+      "status": { "description": "Show the working tree status", "flags": ["-s", "--short"] },
+      "add": { "description": "Add file contents to the index", "flags": [".", "-A", "-u"] },
+      "branch": { "description": "List, create, or delete branches", "flags": ["-a", "-d", "-D", "-m"] }
+    },
+    "flags": ["--version", "--help"]
+  },
+  "wsl": {
+    "subcommands": {
+      "--install": { "description": "Install a Linux distribution", "flags": ["-d"] },
+      "--list": { "description": "List Linux distributions", "flags": ["--online", "--verbose"] },
+      "--set-default": { "description": "Set the default Linux distribution" },
+      "--set-version": { "description": "Change the version of the specified distribution" },
+      "--shutdown": { "description": "Immediately terminates all running distributions" },
+      "--update": { "description": "Update the Windows Subsystem for Linux package" }
+    },
+    "flags": ["--help", "--status"]
+  },
+  "npm": {
+    "subcommands": {
+      "install": { "description": "Install a package", "flags": ["-g", "--save", "--save-dev", "--production"] },
+      "run": { "description": "Run arbitrary package scripts", "flags": ["build", "dev", "start", "test"] },
+      "start": { "description": "Start the package" },
+      "init": { "description": "Create a package.json file", "flags": ["-y"] }
+    },
+    "flags": ["-v", "--version", "--help"]
+  },
+  "firebase": {
+    "subcommands": {
+      "deploy": { "description": "Deploy code and assets to your Firebase project", "flags": ["--only", "--except"] },
+      "init": { "description": "Interactively configure the current directory as a Firebase workspace" },
+      "serve": { "description": "Start a local server for your static assets", "flags": ["--port", "--host"] },
+      "login": { "description": "Log the CLI into Firebase", "flags": ["--reauth", "--no-localhost"] }
+    },
+    "flags": ["--project", "--debug", "--help"]
+  }
+}
