@@ -44,7 +44,7 @@
       "--help": "Show help"
     }
   },
-  "fastboot": {
+"fastboot": {
     "subcommands": {
       "devices": {
         "description": "List connected devices",
@@ -58,11 +58,24 @@
           "boot": "Flash boot partition",
           "recovery": "Flash recovery partition",
           "system": "Flash system partition",
-          "vendor": "Flash vendor partition"
+          "vendor": "Flash vendor partition",
+          "vendor_boot": "Flash vendor_boot partition",
+          "vbmeta": "Flash vbmeta partition",
+          "dtbo": "Flash dtbo partition",
+          "super": "Flash super partition",
+          "userdata": "Flash userdata partition",
+          "radio": "Flash radio/modem partition"
         }
       },
       "boot": { "description": "Download and boot kernel" },
-      "reboot": { "description": "Reboot device normally" },
+      "reboot": {
+        "description": "Reboot device",
+        "flags": {
+          "bootloader": "Reboot to bootloader",
+          "recovery": "Reboot to recovery",
+          "fastboot": "Reboot to fastbootd"
+        }
+      },
       "oem": {
         "description": "OEM specific commands",
         "flags": {
