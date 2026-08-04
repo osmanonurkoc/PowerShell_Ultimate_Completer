@@ -93,6 +93,8 @@
   },
   "git": {
     "subcommands": {
+      "init": { "description": "Start a new repo" },
+      "clone": { "description": "Clone an existing repo" },
       "checkout": {
         "description": "Switch branches or restore working tree files",
         "flags": {
@@ -100,12 +102,18 @@
           "-f": "Force checkout (discard local changes)"
         }
       },
+      "switch": {
+        "description": "Switch branches",
+        "flags": {
+          "-c": "Create a branch"
+        }
+      },
       "commit": {
         "description": "Record changes to the repository",
         "flags": {
           "-m": "Use the given message as the commit message",
           "-a": "Stage all modified and deleted files",
-          "--amend": "Replace the tip of the current branch by creating a new commit"
+          "--amend": "Change a commit message (or add a file you forgot)"
         }
       },
       "push": {
@@ -113,18 +121,20 @@
         "flags": {
           "-u": "Add upstream (tracking) reference",
           "--force": "Force the push",
-          "--tags": "Push all tags"
+          "--force-with-lease": "Force push",
+          "--tags": "Push tags"
         }
       },
       "pull": {
         "description": "Fetch from and integrate with another repository or a local branch",
         "flags": {
-          "--rebase": "Rebase local commits on top of fetched branch",
+          "--rebase": "Fetch changes and then rebase your current branch",
           "--no-commit": "Perform the merge but do not commit"
         }
       },
+      "fetch": { "description": "Fetch changes (but don't change any of your local branches)" },
       "status": {
-        "description": "Show the working tree status",
+        "description": "Check what you added / Show the working tree status",
         "flags": {
           "-s": "Give the output in the short-format"
         }
@@ -132,18 +142,88 @@
       "add": {
         "description": "Add file contents to the index",
         "flags": {
-          ".": "Add all files in current directory",
+          ".": "Add all untracked files and unstaged changes",
           "-A": "Add all files in the working tree",
-          "-u": "Update tracked files"
+          "-u": "Update tracked files",
+          "-p": "Choose which parts of a file to stage"
         }
       },
       "branch": {
         "description": "List, create, or delete branches",
         "flags": {
           "-a": "List both remote-tracking and local branches",
-          "-d": "Delete fully merged branch",
-          "-D": "Delete branch (even if not merged)",
-          "-m": "Rename branch"
+          "-d": "Delete a branch",
+          "-D": "Force delete a branch",
+          "-m": "Rename branch",
+          "--sort--committerdate": "List branches by most recently committed to"
+        }
+      },
+      "mv": { "description": "Move file" },
+      "rm": {
+        "description": "Delete file",
+        "flags": {
+          "--cached": "Tell Git to forget about a file without deleting it"
+        }
+      },
+      "restore": {
+        "description": "Delete unstaged changes to one file",
+        "flags": {
+          "--staged": "Delete all staged and unstaged changes to one file",
+          "--worktree": "Delete all staged and unstaged changes to one file",
+          "--source": "Get the version of a file from another commit"
+        }
+      },
+      "reset": {
+        "description": "Unstage a file or undo the most recent commit",
+        "flags": {
+          "--hard": "Delete all staged and unstaged changes"
+        }
+      },
+      "clean": { "description": "Delete untracked files" },
+      "stash": { "description": "'Stash' all staged and unstaged changes" },
+      "diff": {
+        "description": "Diff staged/unstaged changes",
+        "flags": {
+          "HEAD": "Diff all staged and unstaged changes",
+          "--staged": "Diff just staged changes",
+          "--stat": "Show a summary of a diff"
+        }
+      },
+      "show": {
+        "description": "Show diff between a commit and its parent",
+        "flags": {
+          "--stat": "Show a summary of a diff"
+        }
+      },
+      "log": {
+        "description": "Look at a branch's history",
+        "flags": {
+          "--graph": "Look at a branch's history as a graph",
+          "--oneline": "Look at a branch's history in one line",
+          "--follow": "Show every commit that modified a file, including before it was renamed",
+          "-G": "Find every commit that added or removed some text"
+        }
+      },
+      "blame": { "description": "Show who last changed each line of a file" },
+      "rebase": { "description": "Combine diverged branches with rebase" },
+      "merge": {
+        "description": "Combine diverged branches with merge",
+        "flags": {
+          "--squash": "Combine with squash merge"
+        }
+      },
+      "cherry-pick": { "description": "Copy one commit onto the current branch" },
+      "reflog": { "description": "Look at history to undo a failed rebase" },
+      "remote": {
+        "description": "Manage remotes",
+        "flags": {
+          "add": "Add a remote"
+        }
+      },
+      "config": {
+        "description": "Configure Git options",
+        "flags": {
+          "--global": "Set option globally"
         }
       }
     },
